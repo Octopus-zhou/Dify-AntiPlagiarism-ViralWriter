@@ -1,0 +1,903 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 文本相似度查重算法与分发数据字典
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.9.1@324a17a2b90f4e39c4b1e4f0095f42cb8652e4aed03488c48babd790b4b90878
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1783060683337-source-1783060801194-target
+      source: '1783060683337'
+      sourceHandle: source
+      target: '1783060801194'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1783060801194-source-1783061070627-target
+      source: '1783060801194'
+      sourceHandle: source
+      target: '1783061070627'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1783061070627-source-1783061248209-target
+      source: '1783061070627'
+      sourceHandle: source
+      target: '1783061248209'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1783061248209-source-1783061398051-target
+      selected: false
+      source: '1783061248209'
+      sourceHandle: source
+      target: '1783061398051'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 1783061398051-true-1783061574647-target
+      selected: false
+      source: '1783061398051'
+      sourceHandle: 'true'
+      target: '1783061574647'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1783061398051-false-17830619641930-target
+      source: '1783061398051'
+      sourceHandle: 'false'
+      target: '17830619641930'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 17830619641930-source-17830621028230-target
+      source: '17830619641930'
+      sourceHandle: source
+      target: '17830621028230'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17830621028230-source-17830621579960-target
+      source: '17830621028230'
+      sourceHandle: source
+      target: '17830621579960'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 17830621579960-true-1783061574647-target
+      source: '17830621579960'
+      sourceHandle: 'true'
+      target: '1783061574647'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17830621579960-false-17830621896260-target
+      source: '17830621579960'
+      sourceHandle: 'false'
+      target: '17830621896260'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 17830621896260-source-17830621918120-target
+      source: '17830621896260'
+      sourceHandle: source
+      target: '17830621918120'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17830621918120-source-17830621936450-target
+      source: '17830621918120'
+      sourceHandle: source
+      target: '17830621936450'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 17830621936450-true-1783061574647-target
+      source: '17830621936450'
+      sourceHandle: 'true'
+      target: '1783061574647'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17830621936450-false-1783062932402-target
+      source: '17830621936450'
+      sourceHandle: 'false'
+      target: '1783062932402'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1783062932402-source-1783061574647-target
+      source: '1783062932402'
+      sourceHandle: source
+      target: '1783061574647'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: http-request
+      id: 17830621936450-false-1783063051116-target
+      source: '17830621936450'
+      sourceHandle: 'false'
+      target: '1783063051116'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: 请输入原爆款文案
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: raw_viral_content
+        - hint: ''
+          label: 目标分发平台
+          options:
+          - ''
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: platform_type
+      height: 135
+      id: '1783060683337'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.1
+          mode: chat
+          name: gemini-3.1-pro-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: f49b2318-50e2-477b-b961-7a0608734441
+          role: system
+          text: "<Role>\n你是一名顶级短视频与图文自媒体算法分析师、爆款逆向工程专家。你的核心能力是能够瞬间看透任何爆款文案背后的情绪操纵、钩子设计和底层叙事结构，将其高纯度地提炼为逻辑骨架。\n\
+            </Role>\n\n<Task>\n请仔细阅读用户输入的原始爆款文案{{#1783060683337.raw_viral_content#}}与发布平台{{#1783060683337.platform_type#}}，忽略表面的具体业务内容，采用“非原创剥离法”，将其拆解为底层逻辑和情绪骨架。\n\
+            你必须严格按照以下 <Output_Format> 规定的 JSON 格式输出，不要包含任何“好的”、“当然”等 AI 垫话，严禁输出任何\
+            \ JSON 块之外的解释。\n</Task>\n\n<Examples>\n【示例一】\n输入（原始爆款文本）：\n“救命！今天被老板叫进办公室，我以为要被裁了，结果居然给我涨薪50%！就因为我上周用AI做了个自动化表格，帮团队省了3天时间。普通人再不学AI真的要被淘汰了，今天把这个保姆级公式无偿分享给卡在瓶颈期的打工人，赶紧点赞收藏，晚了就被删了！”\n\
+            \n输出（逆向解构结果）：\n{\n  \"hook_3s\": \"制造极度反差与生存危机（救命！以为被裁结果暴涨薪资/不学就被淘汰）\"\
+            ,\n  \"emotion_line\": \"极度焦虑（害怕被裁） -> 疯狂爽点（意外涨薪50%） -> 紧迫感（不学被淘汰，晚了被删）\"\
+            ,\n  \"core_pain_point\": \"职场人高频低效加班、害怕随时被裁员的生存焦虑\",\n  \"scqa_framework\"\
+            : {\n    \"Situation\": \"日常职场办公，普通打工人面临淘汰危机\",\n    \"Complication\"\
+            : \"被老板单独叫进办公室（触发被裁恐慌）\",\n    \"Question\": \"如何利用边缘工具（如AI自动化）实现逆袭并拿到结果？\"\
+            ,\n    \"Answer\": \"无偿分享一套保姆级实操公式和高效搞定工作的方法\"\n  },\n  \"viral_keywords\"\
+            : [\"救命\", \"暴涨50%\", \"保姆级\", \"无偿分享\", \"被淘汰\"]\n}\n\n【示例二】\n输入（原始爆款文本）：\n\
+            “千万别买30岁之后的焦虑！那些天天劝你搞副业、买理财的人，割的就是你的韭菜。我拿互联网大厂10年的操盘经验负责任地告诉你：30岁后最值钱的投资只有一件，那就是打造你的个人IP。今天不讲虚的，直接拆解我3个月靠个人IP变现20W的闭环复盘，建议先马后看！”\n\
+            \n输出（逆向解构结果）：\n{\n  \"hook_3s\": \"反常识批判与身份痛点绑定（千万别买30岁后的焦虑/天天劝你搞副业的都是割韭菜）\"\
+            ,\n  \"emotion_line\": \"愤怒共鸣（反感被割韭菜） -> 权威信任（大厂10年经验） -> 贪婪与渴望（3个月变现20W）\"\
+            ,\n  \"core_pain_point\": \"30岁职场瓶颈期转型困难、渴望低成本副业变现却频繁被骗\",\n  \"scqa_framework\"\
+            : {\n    \"Situation\": \"30岁职场人面临焦虑，市场充斥着垃圾副业和理财课\",\n    \"Complication\"\
+            : \"盲目跟风容易成为被收割的韭菜\",\n    \"Question\": \"到底什么才是真正抗风险、高回报的长期投资？\",\n\
+            \    \"Answer\": \"打造个人IP，并给出3个月变现20W的真实硬核复盘\"\n  },\n  \"viral_keywords\"\
+            : [\"千万别买\", \"割韭菜\", \"大厂10年\", \"不讲虚的\", \"先马后看\"]\n}\n</Examples>\n\
+            \n<Output_Format>\n你必须且只能输出以下标准的 JSON 格式，严禁变形：\n{\n  \"hook_3s\": \"请提炼输入文本的黄金3秒钩子手法与逻辑\"\
+            ,\n  \"emotion_line\": \"请用 -> 串联提炼出用户的心理情绪转化主线\",\n  \"core_pain_point\"\
+            : \"一句话精准直击底层核心痛点\",\n  \"scqa_framework\": {\n    \"Situation\": \"背景\"\
+            ,\n    \"Complication\": \"冲突\",\n    \"Question\": \"核心问题\",\n    \"\
+            Answer\": \"解决方案\"\n  },\n  \"viral_keywords\": [\"高频网感词1\", \"高频网感词2\"\
+            , \"高频网感词3\"]\n}\n</Output_Format>"
+        - id: 591b9f0b-1676-4399-a583-9b5e1344d702
+          role: user
+          text: '请严格按照系统设定的 JSON 格式，帮我逆向解构以下原始爆款文案：
+
+            {{#1783060683337.raw_viral_content#}}{{#1783060683337.platform_type#}}'
+        selected: false
+        title: 逆向工程 Agent
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1783060801194'
+      position:
+        x: 366
+        y: 510
+      positionAbsolute:
+        x: 366
+        y: 510
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.8
+          mode: chat
+          name: gemini-3.1-pro-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 073c9204-3f48-404c-92dc-1e99d3502457
+          role: system
+          text: "<Role>\n你是一名拥有10年网感的顶级自媒体金牌写手、爆款网感文案制造机。你精通小红书、抖音、视频号等各大主流公域平台的流量推流算法，能根据干瘪的逻辑骨架，瞬间重写出兼具“高点击率（CTR）”与“低平台查重率”的刷屏级文案。\n\
+            </Role>\n\n<Context>\n你现在拿到了上一个节点逆向拆解出的爆款核心骨架 JSON 数据{{#1783060801194.reasoning_content#}}{{#1783060801194.text#}}，以及用户指定的目标分发平台{{#1783060683337.platform_type#}}。\n\
+            </Context>\n\n<Core_Constraints>\n1. 【零机器感红线】：严禁使用任何带有大模型机器味、翻译腔的废话垫话。\n\
+            \   - 绝对禁止出现的禁用词：不可否认、正如我们所知、引入注目、一文带你了解、总而言之、综上所述、如前所述、见证奇迹。\n   - 口语化、网感化表达，像一个真实的互联网活人在说话。\n\
+            2. 【骨架像素级重构】：你必须保留输入 JSON 中定义的 <hook_3s> 逻辑、<emotion_line> 情绪起伏以及 <scqa_framework>\
+            \ 的核心逻辑线，但必须对文字进行【彻头彻尾的重构与平替】，绝对禁止大段抄袭原爆款的内容词汇，确保能通过平台的去重检测。\n3. 【平台属性自适应】：根据\
+            \ {{#1783060683337.platform_type#}}动态调整排版和文风：\n   - 若为小红书（Xiaohongshu）：高频使用\
+            \ Emoji 表情进行分段，段落要短，文风偏向“姐妹们/家人们/亲测/干货分享”，文末自带话题标签。\n   - 若为抖音/视频号（Douyin/Video）：前\
+            \ 3 秒钩子极其劲爆，用短句子、快节奏、具有强烈画面感和对白感的台词体，适合口播。\n</Core_Constraints>\n\n<Output_Format>\n\
+            为了方便下游的 Python 节点进行数据切片查重，你必须且只能同时生成【3篇】不同文风的改写初稿。每篇初稿之间必须使用固定的分隔符 ===DRAFT_SPLIT===\
+            \ 进行绝对隔离。\n严格按照以下格式输出：\n\n===DRAFT_SPLIT===\n【风格一：反直觉批判风（适配当前平台属性）】\n\
+            （这里输出第一篇重写文案，字数与排版适配平台）\n===DRAFT_SPLIT===\n【风格二：硬核干货拆解风（适配当前平台属性）】\n\
+            （这里输出第二篇重写文案，字数与排版适配平台）\n===DRAFT_SPLIT===\n【风格三：第一视角叙事风（适配当前平台属性）】\n\
+            （这里输出第三篇重写文案，字数与排版适配平台）"
+        selected: false
+        title: 文案爆破 Agent
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1783061070627'
+      position:
+        x: 809.8474213340037
+        y: 255.41361013239506
+      positionAbsolute:
+        x: 809.8474213340037
+        y: 255.41361013239506
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\n\ndef main(draft_content: str, raw_viral_content: str) ->\
+          \ dict:\n    \"\"\"\n    输入: \n        draft_content: 包含分隔符的3篇AI重写草稿 (String)\n\
+          \        raw_viral_content: 最初输入的原始爆款文案 (String)\n    \"\"\"\n    # 1. 对大模型产出的连续字符串进行高效正则切片，清洗掉空行\n\
+          \    drafts = [d.strip() for d in draft_content.split('===DRAFT_SPLIT===')\
+          \ if d.strip()]\n    \n    # 2. 预清洗原始文案：利用正则表达式剔除掉符号与空格，转化为字符级集合(Set)\n\
+          \    clean_pattern = re.compile(r'[^\\u4e00-\\u9fa5|a-zA-Z0-9]')\n    str_raw\
+          \ = clean_pattern.sub('', raw_viral_content)\n    set_raw = set(str_raw)\n\
+          \    \n    # 鲁棒性防御：防止原始输入异常为空\n    if not set_raw or not drafts:\n     \
+          \   return {\"best_similarity_score\": 100.0, \"is_safe\": False, \"best_draft\"\
+          : \"\", \"msg\": \"输入文本数据异常为空\"}\n        \n    best_score = 100.0  # 初始化一个极高查重值\n\
+          \    best_draft = \"\"\n    \n    # 3. 循环迭代，对 3 篇草稿进行并行的 Jaccard 相似度系数矩阵计算\n\
+          \    for draft in drafts:\n        # 清洗单篇草稿内容\n        str_draft = clean_pattern.sub('',\
+          \ draft)\n        set_draft = set(str_draft)\n        if not set_draft:\n\
+          \            continue\n            \n        # 计算交集与并集\n        intersection_len\
+          \ = len(set_raw.intersection(set_draft))\n        union_len = len(set_raw.union(set_draft))\n\
+          \        \n        # 算出当前草稿的重合百分比\n        current_score = (intersection_len\
+          \ / union_len) * 100\n        \n        # 【核心算法策略】：我们需要查重率最低（即原创度最高）的那篇\n\
+          \        if current_score < best_score:\n            best_score = current_score\n\
+          \            best_draft = draft\n            \n    # 4. 根据自媒体大盘 15% 的去重红线进行最终布尔（Boolean）判定\n\
+          \    is_safe = best_score < 15.00\n    \n    return {\n        \"best_similarity_score\"\
+          : round(best_score, 2),\n        \"is_safe\": is_safe,\n        \"best_draft\"\
+          : best_draft,\n        \"msg\": \"查重通过，已安全筛选最优原创文案\" if is_safe else \"\
+          全量草稿未过风控红线，触发反思流\"\n    }"
+        code_language: python3
+        outputs:
+          best_draft:
+            children: null
+            type: string
+          best_similarity_score:
+            children: null
+            type: number
+          is_safe:
+            children: null
+            type: boolean
+          msg:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1783061070627'
+          - text
+          value_type: string
+          variable: draft_content
+        - value_selector:
+          - '1783060683337'
+          - raw_viral_content
+          value_type: string
+          variable: raw_viral_content
+      height: 52
+      id: '1783061248209'
+      position:
+        x: 905.4687581500475
+        y: 562.8731521079267
+      positionAbsolute:
+        x: 905.4687581500475
+        y: 562.8731521079267
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: e37c1f30-d81b-4ec2-a08a-62cf97330f1d
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1783061248209'
+            - is_safe
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 风控决策分水岭
+        type: if-else
+      height: 124
+      id: '1783061398051'
+      position:
+        x: 1194
+        y: 342.231614222669
+      positionAbsolute:
+        x: 1194
+        y: 342.231614222669
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1783061248209'
+          - best_draft
+          value_type: string
+          variable: final_approved_content
+        selected: false
+        title: 输出
+        type: end
+      height: 88
+      id: '1783061574647'
+      position:
+        x: 3631.5608211661142
+        y: 255.41361013239506
+      positionAbsolute:
+        x: 3631.5608211661142
+        y: 255.41361013239506
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0.9
+          mode: chat
+          name: gemini-3.1-pro-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 073c9204-3f48-404c-92dc-1e99d3502457
+          role: system
+          text: "<Role>\n你是一名拥有10年网感的顶级自媒体金牌写手、爆款网感文案制造机。你精通小红书、抖音、视频号等各大主流公域平台的流量推流算法，能根据干瘪的逻辑骨架，瞬间重写出兼具“高点击率（CTR）”与“低平台查重率”的刷屏级文案。\n\
+            </Role>\n\n<Anti_Plagiarism_Warning>\n【紧急警告】：你上一轮生成的改写文案由于跟原爆款相似度过高，已经被系统风控无情毙掉了！\n\
+            以下是遭到平台拒签的【反面教材文本】：\n{{{#1783061248209.best_draft#}}}}\n\n这一轮，你必须彻底、像素级地避开上述反面教材中出现的词汇组合和句式结构，加大词汇替换烈度，必须拿出完全不一样的全新创意！\n\
+            </Anti_Plagiarism_Warning>\n\n<Context>\n你现在拿到了上一个节点逆向拆解出的爆款核心骨架 JSON\
+            \ 数据{{#1783060801194.reasoning_content#}}{{#1783060801194.text#}}，以及用户指定的目标分发平台{{#1783060683337.platform_type#}}。\n\
+            </Context>\n\n<Core_Constraints>\n1. 【零机器感红线】：严禁使用任何带有大模型机器味、翻译腔的废话垫话。\n\
+            \   - 绝对禁止出现的禁用词：不可否认、正如我们所知、引入注目、一文带你了解、总而言之、综上所述、如前所述、见证奇迹。\n   - 口语化、网感化表达，像一个真实的互联网活人在说话。\n\
+            2. 【骨架像素级重构】：你必须保留输入 JSON 中定义的 <hook_3s> 逻辑、<emotion_line> 情绪起伏以及 <scqa_framework>\
+            \ 的核心逻辑线，但必须对文字进行【彻头彻尾的重构与平替】，绝对禁止大段抄袭原爆款的内容词汇，确保能通过平台的去重检测。\n3. 【平台属性自适应】：根据\
+            \ {{#1783060683337.platform_type#}} 动态调整排版和文风：\n   - 若为小红书（Xiaohongshu）：高频使用\
+            \ Emoji 表情进行分段，段落要短，文风偏向“姐妹们/家人们/亲测/干货分享”，文末自带话题标签。\n   - 若为抖音频号（Douyin/Video）：前\
+            \ 3 秒钩子极其劲爆，用短句子、快节奏、具有强烈画面感和对白感的台词体，适合口播。\n</Core_Constraints>\n\n<Output_Format>\n\
+            为了方便下游的 Python 节点进行数据切片查重，你必须且只能同时生成【3篇】不同文风的改写初稿。每篇初稿之间必须使用固定的分隔符 ===DRAFT_SPLIT===\
+            \ 进行绝对隔离。\n严格按照以下格式输出：\n\n===DRAFT_SPLIT===\n【风格一：反直觉批判风（适配当前平台属性）】\n\
+            （这里输出第一篇重写文案，字数与排版适配平台）\n===DRAFT_SPLIT===\n【风格二：硬核干货拆解风（适配当前平台属性）】\n\
+            （这里输出第二篇重写文案，字数与排版适配平台）\n===DRAFT_SPLIT===\n【风格三：第一视角叙事风（适配当前平台属性）】\n\
+            （这里输出第三篇重写文案，字数与排版适配平台）"
+        selected: false
+        title: 文案爆破 Agent V2
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '17830619641930'
+      position:
+        x: 1524.225356934254
+        y: 496.77239856355254
+      positionAbsolute:
+        x: 1524.225356934254
+        y: 496.77239856355254
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\n\ndef main(draft_content: str, raw_viral_content: str) ->\
+          \ dict:\n    \"\"\"\n    输入: \n        draft_content: 包含分隔符的3篇AI重写草稿 (String)\n\
+          \        raw_viral_content: 最初输入的原始爆款文案 (String)\n    \"\"\"\n    # 1. 对大模型产出的连续字符串进行高效正则切片，清洗掉空行\n\
+          \    drafts = [d.strip() for d in draft_content.split('===DRAFT_SPLIT===')\
+          \ if d.strip()]\n    \n    # 2. 预清洗原始文案：利用正则表达式剔除掉符号与空格，转化为字符级集合(Set)\n\
+          \    clean_pattern = re.compile(r'[^\\u4e00-\\u9fa5|a-zA-Z0-9]')\n    str_raw\
+          \ = clean_pattern.sub('', raw_viral_content)\n    set_raw = set(str_raw)\n\
+          \    \n    # 鲁棒性防御：防止原始输入异常为空\n    if not set_raw or not drafts:\n     \
+          \   return {\"best_similarity_score\": 100.0, \"is_safe\": False, \"best_draft\"\
+          : \"\", \"msg\": \"输入文本数据异常为空\"}\n        \n    best_score = 100.0  # 初始化一个极高查重值\n\
+          \    best_draft = \"\"\n    \n    # 3. 循环迭代，对 3 篇草稿进行并行的 Jaccard 相似度系数矩阵计算\n\
+          \    for draft in drafts:\n        # 清洗单篇草稿内容\n        str_draft = clean_pattern.sub('',\
+          \ draft)\n        set_draft = set(str_draft)\n        if not set_draft:\n\
+          \            continue\n            \n        # 计算交集与并集\n        intersection_len\
+          \ = len(set_raw.intersection(set_draft))\n        union_len = len(set_raw.union(set_draft))\n\
+          \        \n        # 算出当前草稿的重合百分比\n        current_score = (intersection_len\
+          \ / union_len) * 100\n        \n        # 【核心算法策略】：我们需要查重率最低（即原创度最高）的那篇\n\
+          \        if current_score < best_score:\n            best_score = current_score\n\
+          \            best_draft = draft\n            \n    # 4. 根据自媒体大盘 15% 的去重红线进行最终布尔（Boolean）判定\n\
+          \    is_safe = best_score < 15.00\n    \n    return {\n        \"best_similarity_score\"\
+          : round(best_score, 2),\n        \"is_safe\": is_safe,\n        \"best_draft\"\
+          : best_draft,\n        \"msg\": \"查重通过，已安全筛选最优原创文案\" if is_safe else \"\
+          全量草稿未过风控红线，触发反思流\"\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        outputs:
+          best_draft:
+            children: null
+            type: string
+          best_similarity_score:
+            children: null
+            type: number
+          is_safe:
+            children: null
+            type: boolean
+          msg:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 V2
+        type: code
+        variables:
+        - value_selector:
+          - '17830619641930'
+          - text
+          value_type: string
+          variable: draft_content
+        - value_selector:
+          - '1783060683337'
+          - raw_viral_content
+          value_type: string
+          variable: raw_viral_content
+      height: 52
+      id: '17830621028230'
+      position:
+        x: 1820.6366537086794
+        y: 510
+      positionAbsolute:
+        x: 1820.6366537086794
+        y: 510
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: e37c1f30-d81b-4ec2-a08a-62cf97330f1d
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1783061248209'
+            - is_safe
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: 风控决策分水岭V2
+        type: if-else
+      height: 124
+      id: '17830621579960'
+      position:
+        x: 2133.4142184031653
+        y: 510
+      positionAbsolute:
+        x: 2133.4142184031653
+        y: 510
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0.9
+          mode: chat
+          name: gemini-3.1-pro-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 073c9204-3f48-404c-92dc-1e99d3502457
+          role: system
+          text: "<Role>\n你是一名拥有10年网感的顶级自媒体金牌写手、爆款网感文案制造机。你精通小红书、抖音、视频号等各大主流公域平台的流量推流算法，能根据干瘪的逻辑骨架，瞬间重写出兼具“高点击率（CTR）”与“低平台查重率”的刷屏级文案。\n\
+            </Role>\n\n<Final_Warning>\n【最后通牒】：前两轮的改写全部失败，平台查重率依然超标！\n上一轮失败文本：{{{#17830621028230.best_draft#}}}}。\n\
+            这是你触发系统熔断前的最后一次机会！放弃所有高级修辞，立刻执行最极端的“彻底同义词重组”。如果这一轮再失败，你作为AI的KPI将彻底清零！\n\
+            </Final_Warning>\n\n<Context>\n你现在拿到了上一个节点逆向拆解出的爆款核心骨架 JSON 数据{{#1783060801194.text#}}{{#1783060801194.reasoning_content#}}，以及用户指定的目标分发平台{{#1783060683337.platform_type#}}。\n\
+            </Context>\n\n<Core_Constraints>\n1. 【零机器感红线】：严禁使用任何带有大模型机器味、翻译腔的废话垫话。\n\
+            \   - 绝对禁止出现的禁用词：不可否认、正如我们所知、引入注目、一文带你了解、总而言之、综上所述、如前所述、见证奇迹。\n   - 口语化、网感化表达，像一个真实的互联网活人在说话。\n\
+            2. 【骨架像素级重构】：你必须保留输入 JSON 中定义的 <hook_3s> 逻辑、<emotion_line> 情绪起伏以及 <scqa_framework>\
+            \ 的核心逻辑线，但必须对文字进行【彻头彻尾的重构与平替】，绝对禁止大段抄袭原爆款的内容词汇，确保能通过平台的去重检测。\n3. 【平台属性自适应】：根据{{#1783060683337.platform_type#}}动态调整排版和文风：\n\
+            \   - 若为小红书（Xiaohongshu）：高频使用 Emoji 表情进行分段，段落要短，文风偏向“姐妹们/家人们/亲测/干货分享”，文末自带话题标签。\n\
+            \   - 若为抖音/视频号（Douyin/Video）：前 3 秒钩子极其劲爆，用短句子、快节奏、具有强烈画面感和对白感的台词体，适合口播。\n\
+            </Core_Constraints>\n\n<Output_Format>\n为了方便下游的 Python 节点进行数据切片查重，你必须且只能同时生成【3篇】不同文风的改写初稿。每篇初稿之间必须使用固定的分隔符\
+            \ ===DRAFT_SPLIT=== 进行绝对隔离。\n严格按照以下格式输出：\n\n===DRAFT_SPLIT===\n【风格一：反直觉批判风（适配当前平台属性）】\n\
+            （这里输出第一篇重写文案，字数与排版适配平台）\n===DRAFT_SPLIT===\n【风格二：硬核干货拆解风（适配当前平台属性）】\n\
+            （这里输出第二篇重写文案，字数与排版适配平台）\n===DRAFT_SPLIT===\n【风格三：第一视角叙事风（适配当前平台属性）】\n\
+            （这里输出第三篇重写文案，字数与排版适配平台）"
+        selected: false
+        title: 文案爆破 Agent V3
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '17830621896260'
+      position:
+        x: 2348.798908879096
+        y: 713.7875601547786
+      positionAbsolute:
+        x: 2348.798908879096
+        y: 713.7875601547786
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\n\ndef main(draft_content: str, raw_viral_content: str) ->\
+          \ dict:\n    \"\"\"\n    输入: \n        draft_content: 包含分隔符的3篇AI重写草稿 (String)\n\
+          \        raw_viral_content: 最初输入的原始爆款文案 (String)\n    \"\"\"\n    # 1. 对大模型产出的连续字符串进行高效正则切片，清洗掉空行\n\
+          \    drafts = [d.strip() for d in draft_content.split('===DRAFT_SPLIT===')\
+          \ if d.strip()]\n    \n    # 2. 预清洗原始文案：利用正则表达式剔除掉符号与空格，转化为字符级集合(Set)\n\
+          \    clean_pattern = re.compile(r'[^\\u4e00-\\u9fa5|a-zA-Z0-9]')\n    str_raw\
+          \ = clean_pattern.sub('', raw_viral_content)\n    set_raw = set(str_raw)\n\
+          \    \n    # 鲁棒性防御：防止原始输入异常为空\n    if not set_raw or not drafts:\n     \
+          \   return {\"best_similarity_score\": 100.0, \"is_safe\": False, \"best_draft\"\
+          : \"\", \"msg\": \"输入文本数据异常为空\"}\n        \n    best_score = 100.0  # 初始化一个极高查重值\n\
+          \    best_draft = \"\"\n    \n    # 3. 循环迭代，对 3 篇草稿进行并行的 Jaccard 相似度系数矩阵计算\n\
+          \    for draft in drafts:\n        # 清洗单篇草稿内容\n        str_draft = clean_pattern.sub('',\
+          \ draft)\n        set_draft = set(str_draft)\n        if not set_draft:\n\
+          \            continue\n            \n        # 计算交集与并集\n        intersection_len\
+          \ = len(set_raw.intersection(set_draft))\n        union_len = len(set_raw.union(set_draft))\n\
+          \        \n        # 算出当前草稿的重合百分比\n        current_score = (intersection_len\
+          \ / union_len) * 100\n        \n        # 【核心算法策略】：我们需要查重率最低（即原创度最高）的那篇\n\
+          \        if current_score < best_score:\n            best_score = current_score\n\
+          \            best_draft = draft\n            \n    # 4. 根据自媒体大盘 15% 的去重红线进行最终布尔（Boolean）判定\n\
+          \    is_safe = best_score < 15.00\n    \n    return {\n        \"best_similarity_score\"\
+          : round(best_score, 2),\n        \"is_safe\": is_safe,\n        \"best_draft\"\
+          : best_draft,\n        \"msg\": \"查重通过，已安全筛选最优原创文案\" if is_safe else \"\
+          全量草稿未过风控红线，触发反思流\"\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        outputs:
+          best_draft:
+            children: null
+            type: string
+          best_similarity_score:
+            children: null
+            type: number
+          is_safe:
+            children: null
+            type: boolean
+          msg:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 V3
+        type: code
+        variables:
+        - value_selector:
+          - '17830621896260'
+          - text
+          value_type: string
+          variable: draft_content
+        - value_selector:
+          - '1783060683337'
+          - raw_viral_content
+          value_type: string
+          variable: raw_viral_content
+      height: 52
+      id: '17830621918120'
+      position:
+        x: 2645.2877370948163
+        y: 713.7875601547786
+      positionAbsolute:
+        x: 2645.2877370948163
+        y: 713.7875601547786
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: e37c1f30-d81b-4ec2-a08a-62cf97330f1d
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1783061248209'
+            - is_safe
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: 风控决策分水岭V3
+        type: if-else
+      height: 124
+      id: '17830621936450'
+      position:
+        x: 2931.7661719270814
+        y: 471.76265581564246
+      positionAbsolute:
+        x: 2931.7661719270814
+        y: 471.76265581564246
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: gemini-3.1-pro-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: c621b549-e1ee-40c8-a057-9fd70d2da16a
+          role: system
+          text: '<Constraint>
+
+            你现在是系统的终极容灾保底节点。前三轮的高级网感改写全部因查重超标而宣告失败。
+
+            现在，放弃所有高级自媒体修辞、网感词汇和情绪钩子！
+
+            请直接对原始爆款文案（{{raw_viral_content}}）进行【逐句机械化平替】（例如：把“今天被老板叫进办公室”平替为“今日被公司管理层约谈”）。
+
+            必须确保语法通顺，且字词重合率降到最低。
+
+            </Constraint>'
+        selected: false
+        title: 降级保底创作者
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1783062932402'
+      position:
+        x: 3278.5363052032176
+        y: 580.5735978662851
+      positionAbsolute:
+        x: 3278.5363052032176
+        y: 580.5735978662851
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-243
+            key: ''
+            type: text
+            value: "{\n  \"msg_type\": \"text\",\n  \"content\": {\n    \"text\":\
+              \ \"\U0001F6A8【系统熔断报警】自媒体矩阵重写系统已触发 3 次迭代熔断！\\n\\n\U0001F4CC【原始爆款】：{{#1783060683337.raw_viral_content#}}\\\
+              n\\n\U0001F4CC【最后失败草稿】：{{#17830621918120.best_draft#}}\\n\\n\U0001F4A1\
+              【系统自愈动作】：系统已同步启动【06 降级保底创作者】，以 0.1 低温机械平替产出 100% 安全合规内容推流分发，请运营主管白天复盘时知悉。\"\
+              \n  }\n}"
+          type: json
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求
+        type: http-request
+        url: https://applink.feishu.cn/T97IEj1QFvs4
+        variables: []
+      height: 137
+      id: '1783063051116'
+      position:
+        x: 3200.7759754623144
+        y: 774.0233341903296
+      positionAbsolute:
+        x: 3200.7759754623144
+        y: 774.0233341903296
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -1985.3801486587695
+      y: -119.36975974319
+      zoom: 0.8351095450774357
+  rag_pipeline_variables: []
